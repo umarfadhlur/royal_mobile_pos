@@ -875,30 +875,25 @@ class _CreateSoGridState extends State<CreateSoGrid> {
     int total = fggp.serviceRequest6.fsP4074W4074D.data.gridData.rowset
         .fold(0, (previousValue, element) => previousValue + element.zUprc95);
     print(formatCurrency(total));
-
     tempDatas.add(TempGrid(
-      itemNumber: fggp.serviceRequest4.fsDatabrowseF56Cpfre.data.gridData.rowset
-          .first.f56CpfreLitm,
-      quantityOrdered: fggp.serviceRequest4.fsDatabrowseF56Cpfre.data.gridData
-          .rowset.first.f56CpfreMnq
-          .toString(),
+      itemNumber: _itemController.text,
+      quantityOrdered: _qtyController.text,
       unitPrice: formatCurrency(total),
-      extendedPrice: formatCurrency(fggp.serviceRequest4.fsDatabrowseF56Cpfre
-              .data.gridData.rowset.first.f56CpfreMnq *
-          total),
+      extendedPrice: formatCurrency(int.parse(_qtyController.text) * total),
       status: _kitController.text,
       priceHistory: jsonEncode(fggp),
     ));
-    _kitController.text = '-';
     postDatas.add(Detail(
-      litm: fggp.serviceRequest4.fsDatabrowseF56Cpfre.data.gridData.rowset.first
-          .f56CpfreLitm,
-      qty: fggp.serviceRequest4.fsDatabrowseF56Cpfre.data.gridData.rowset.first
-          .f56CpfreMnq
-          .toString(),
+      litm: _itemController.text,
+      qty: _qtyController.text,
       uprc: total.toString(),
       priceHistory: jsonEncode(fggp),
     ));
+
+    _itemController.text = '';
+    _priceController.text = '-';
+    _qtyController.text = '';
+    _kitController.text = '-';
 
     return Column(
       children: [
@@ -1145,10 +1140,6 @@ class _CreateSoGridState extends State<CreateSoGrid> {
       print('detailDatas: ' + jsonEncode(detailDatas));
       _createSoBloc
           .add(GetFreeGoodsPriceHistoryNewEvent(gridData: detailDatas));
-
-      _itemController.text = '';
-      _priceController.text = '-';
-      _qtyController.text = '';
     });
 
     _focusNodePo.requestFocus();

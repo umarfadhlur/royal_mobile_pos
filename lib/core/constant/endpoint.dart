@@ -5,8 +5,8 @@ class EndPoint {
   // static String _baseUrlWeb = 'http://192.168.8.105/store_royal/api';
   // static String _baseUrlWeb = 'http://10.109.252.105/store_royal/api';
   // static String _baseUrlWeb = 'http://192.168.1.45/store_royal/api';
-  static String _baseUrlWeb = 'http://192.168.100.126/store_royal/api'; 
-  // static String _baseUrlWeb = 'http://192.168.9.58/store_royal/api';
+  // static String _baseUrlWeb = 'http://192.168.100.126/store_royal/api'; 
+  static String _baseUrlWeb = 'http://192.168.9.58/store_royal/api';
   // static String _baseUrlWeb = 'http://192.168.43.6/store_royal/api';
   //static String _baseUrl = 'https://wms2.opusb.id/jderest';
 

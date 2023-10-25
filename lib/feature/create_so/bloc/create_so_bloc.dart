@@ -49,6 +49,8 @@ class CreateSoBloc extends Bloc<CreateSoEvent, CreateSoState> {
         transactionOriginator: event.transactionOriginator,
       );
 
+      print(listParam.toJson());
+
       if (event.branchPlant != null) {
         try {
           final previousOrder =
@@ -82,22 +84,22 @@ class CreateSoBloc extends Bloc<CreateSoEvent, CreateSoState> {
         transactionOriginator: event.transactionOriginator,
       );
 
-      if (event.branchPlant != null) {
-        try {
-          final previousOrder =
-              await createSoRepository.soKitEntry(listParam.toJson());
-          print(previousOrder.continuedOnError);
-          if (previousOrder.serviceRequest2.submitted != null) {
-            print('Success');
-            yield GetOrderKitNumber(previousOrder: previousOrder);
-            // yield SuccessEntry(message: 'SO Created');
-          } else {
-            print('Failed');
-            yield FailedEntry(message: 'SO Failed');
-          }
-        } catch (e) {
+      print(listParam.toJson());
+
+      try {
+        final previousOrder =
+            await createSoRepository.soKitEntry(listParam.toJson());
+        print(previousOrder.continuedOnError);
+        if (previousOrder.serviceRequest2.submitted != null) {
+          print('Success');
+          yield GetOrderKitNumber(previousOrder: previousOrder);
+          // yield SuccessEntry(message: 'SO Created');
+        } else {
+          print('Failed');
           yield FailedEntry(message: 'SO Failed');
         }
+      } catch (e) {
+        yield FailedEntry(message: 'SO Failed');
       }
     } else if (event is GetPriceListEvent) {
       print('Get Price List');
