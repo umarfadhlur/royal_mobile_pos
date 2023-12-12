@@ -10,6 +10,7 @@ import 'package:royal_mobile_pos/core/constant/shared_preference.dart';
 import 'package:royal_mobile_pos/feature/login/ui/page/login_page.dart';
 import 'package:royal_mobile_pos/feature/main_menu/ui/widget/main_menu.dart';
 import 'package:get/get.dart';
+import 'package:royal_mobile_pos/feature/main_menu/ui/widget/qr.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:bot_toast/bot_toast.dart';
 
@@ -98,7 +99,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             MainMenu(),
-            SizedBox(height: size.width * 0.05),
           ],
         ),
       ),

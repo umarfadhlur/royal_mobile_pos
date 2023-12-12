@@ -7,6 +7,7 @@ import 'package:royal_mobile_pos/feature/customer/ui/customer_list.dart';
 import 'package:royal_mobile_pos/feature/get_price/ui/get_price.dart';
 import 'package:get/get.dart';
 import 'package:royal_mobile_pos/feature/equipment_master/ui/equip_master_list.dart';
+import 'package:royal_mobile_pos/feature/main_menu/ui/widget/qr.dart';
 import 'package:royal_mobile_pos/feature/offline_wo/ui/work_order_list_offline.dart';
 import 'package:royal_mobile_pos/feature/user/ui/user_list.dart';
 import 'package:royal_mobile_pos/feature/work_order/add_work_order.dart';
@@ -54,7 +55,7 @@ List<MainMenuItem> mainMenuItem = [
     colorBox: Colors.cyan,
     iconColor: Colors.white,
     press: () {
-      Get.to(() => UserList());
+      Get.to(() => QRWidget());
     },
   ),
   MainMenuItem(
